@@ -5,6 +5,7 @@
 # Подкастер — студия записи и телесуфлёр для Windows
 
 Нативное приложение на **C++20** (`Win32 + Direct2D + DirectWrite + WASAPI`) для быстрой записи сольных подкастов. В одном лёгком окне собраны телесуфлёр с автопрокруткой, звуковая волна высокой чёткости, перезапись неудачных дублей, сокращение длинных пауз, регулятор громкости, неразрушающие эффекты, проекты `.podcaster`, автобэкапы и экспорт в WAV/MP3.
+
 <img width="1918" height="1029" alt="image" src="https://github.com/user-attachments/assets/c7b30224-d0ef-47a6-b1cf-41458f057f8c" />
 
 ## Скачать и установить (без компиляции)
@@ -126,6 +127,8 @@ Copyright (C) 2026 Vladimir Borozenets
 # Podcaster — Recording Studio & Teleprompter for Windows
 
 A lightweight native **C++20** (`Win32 + Direct2D + DirectWrite + WASAPI`) desktop studio built for solo podcast recording. One compact window combines an auto-scrolling teleprompter, high-detail waveform view, punch-in re-recording, silence trimming, master gain fader, non-destructive DSP effects, `.podcaster` project files, automatic backups, and lossless/MP3 export.
+
+<img width="1919" height="1029" alt="image" src="https://github.com/user-attachments/assets/f55f0d57-b2ab-403f-9d42-6e178b9c4542" />
 
 ## Download & Installation (No compilation needed)
 
