@@ -66,6 +66,10 @@
 - **Громкость** слева от волны регулируется перетаскиванием или колесом мыши от `−24` до `+12 дБ` (**Сброс** возвращает `0 дБ`). Влияет на прослушивание и экспорт после цепочки эффектов.
 - Показатель **Пик дБFS** над волной подсвечивается при перегрузе (`> 0 dBFS`); включённый **Лимитер** удерживает пики в пределах `−1 dBFS`.
 
+Режим удаления пауз:
+<img width="1908" height="493" alt="image" src="https://github.com/user-attachments/assets/ccccaa9a-61f5-4a6a-9367-e35e07c9d443" />
+
+
 ### Эффекты (неразрушающие переключатели, 32-bit float / 48 кГц)
 
 Все эффекты работают поверх исходной дорожки как переключатели **ВКЛ / ВЫКЛ** и пересчитываются в фоновом потоке, не блокируя интерфейс и телесуфлёр:
@@ -187,6 +191,10 @@ Regular users **do not need to compile anything** — a ready-to-run binary is p
   - Apply the edits with smooth splices (undoable via `Ctrl+Z`) or press `Esc` to close the bar.
 - Drag or scroll the **Master Gain** fader on the left of the waveform (`−24` to `+12 dB`, with reset to `0 dB`). Scales playback and export after the effects chain.
 - The **Peak dBFS** readout above the waveform highlights clipping (`> 0 dBFS`); enabling **Limiter** caps sample peaks at `−1 dBFS`.
+
+Current mode to delete silences in audio track.
+<img width="1908" height="493" alt="image" src="https://github.com/user-attachments/assets/7a891a5e-2618-4ee0-bf81-7f95f02ce3fa" />
+
 
 ### Non-Destructive Effects (32-bit float / 48 kHz, Background Processing)
 
