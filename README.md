@@ -104,7 +104,7 @@
 Copyright (C) 2026 Vladimir Borozenets
 
 Проект распространяется по лицензии **[GNU General Public License v3.0 (GPL-3.0)](LICENSE)**.
-Любые производные работы и распространяемые сборки на основе этого кода также должны публиковаться с открытым исходным кодом под лицензией GPLv3; включение кода в закрытые коммерческие проприетарные продукты без отдельной лицензии от автора запрещено. Для коммерческого закрытого использования возможна отдельная договорённость с автором.
+Любые производные работы и распространяемые сборки на основе этого кода также должны публиковаться с открытым исходным кодом под лицензией GPLv3.
 
 ---
 
@@ -227,4 +227,4 @@ Build a separate test binary and run the headless self-test suite:
 Copyright (C) 2026 Vladimir Borozenets
 
 This project is licensed under the **[GNU General Public License v3.0 (GPL-3.0)](LICENSE)**.
-Any derivative works or redistributed builds based on this code must also remain open-source under the GPLv3; incorporating this code into closed-source proprietary commercial software without a separate license from the author is not permitted. Separate commercial licensing for closed-source use may be arranged with the author.
+Any derivative works or redistributed builds based on this code must also remain open-source under the GPLv3.
