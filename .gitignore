@@ -1,0 +1,18 @@
+# Local autosave backups and user recordings
+backups/
+*.podcaster
+*.wav
+*.mp3
+
+# Runtime UI preferences
+ui-language.txt
+
+# Compiled binaries and build intermediates
+Podcaster.exe
+*.exe
+*.obj
+*.res
+*.pdb
+*.ilk
+*.exp
+*.lib

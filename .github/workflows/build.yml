@@ -1,0 +1,44 @@
+name: Build Podcaster
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup MSVC x64 toolchain
+        uses: ilammy/msvc-dev-cmd@v1
+        with:
+          arch: x64
+
+      - name: Build Podcaster.exe
+        shell: cmd
+        run: build.bat
+
+      - name: Ensure FFmpeg is available for self-test
+        shell: pwsh
+        run: |
+          if (-not (Get-Command ffmpeg -ErrorAction SilentlyContinue)) {
+            choco install ffmpeg -y --no-progress
+          }
+
+      - name: Run headless self-test
+        shell: pwsh
+        run: |
+          & .\Podcaster.exe --self-test | Out-String
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+      - name: Upload Podcaster.exe artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Podcaster-windows-x64
+          path: Podcaster.exe
