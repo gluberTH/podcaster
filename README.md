@@ -6,10 +6,20 @@
 
 Нативное приложение на **C++20** (`Win32 + Direct2D + DirectWrite + WASAPI`) для быстрой записи сольных подкастов. В одном лёгком окне собраны телесуфлёр с автопрокруткой, звуковая волна высокой чёткости, перезапись неудачных дублей, сокращение длинных пауз, регулятор громкости, неразрушающие эффекты, проекты `.podcaster`, автобэкапы и экспорт в WAV/MP3.
 
-## Быстрый старт и язык интерфейса
+## Скачать и установить (без компиляции)
 
-- Запустите [`Podcaster.exe`](Podcaster.exe) двойным кликом.
-- Переключение языка интерфейса (**RU / EN**) — кнопка **`RU ▾` / `EN ▾`** в верхней панели. Выбранный язык сохраняется в `ui-language.txt` рядом с программой (по умолчанию используется английский, пока не выбран русский).
+Обычным пользователям **ничего компилировать не нужно** — готовый `.exe` лежит во вкладке Releases:
+
+1. Скачайте **`Podcaster.exe`**: **[Скачать последнюю версию (Podcaster.exe)](https://github.com/gluberTH/podcaster/releases/latest/download/Podcaster.exe)** или выберите релиз на [странице Releases](https://github.com/gluberTH/podcaster/releases/latest).
+2. Положите файл в любую папку (установщик не требуется, программа полностью портативна, Windows 10/11 x64) и запустите двойным кликом.
+3. Если при первом запуске Windows SmartScreen покажет предупреждение о неизвестном издателе, нажмите **«Подробнее» → «Выполнить в любом случае»** (пока оформляется цифровая подпись).
+4. **Необязательно (для MP3 и импорта других форматов):** запись с микрофона и экспорт в `WAV` работают сразу. Чтобы открывать `MP3`/`FLAC`/`M4A`/`Ogg` или экспортировать в `MP3 (320 кбит/с)`, установите FFmpeg одной командой в PowerShell (или положите `ffmpeg.exe` рядом с `Podcaster.exe`):
+
+   ```powershell
+   winget install Gyan.FFmpeg
+   ```
+
+5. Переключение языка интерфейса (**RU / EN**) — кнопка **`RU ▾` / `EN ▾`** в верхней панели. Выбранный язык сохраняется в `ui-language.txt` рядом с программой (по умолчанию используется английский, пока не выбран русский).
 
 ### Аудиофайлы и проекты (`Файл ▾`)
 
@@ -99,6 +109,10 @@
 & .\Podcaster.exe --self-test | Out-String
 ```
 
+### Цифровая подпись
+
+Free code signing provided by [SignPath.io](https://signpath.io/), certificate by [SignPath Foundation](https://signpath.org/).
+
 ### Лицензия
 
 Copyright (C) 2026 Vladimir Borozenets
@@ -112,10 +126,20 @@ Copyright (C) 2026 Vladimir Borozenets
 
 A lightweight native **C++20** (`Win32 + Direct2D + DirectWrite + WASAPI`) desktop studio built for solo podcast recording. One compact window combines an auto-scrolling teleprompter, high-detail waveform view, punch-in re-recording, silence trimming, master gain fader, non-destructive DSP effects, `.podcaster` project files, automatic backups, and lossless/MP3 export.
 
-## Quick Start & Interface Language
+## Download & Installation (No compilation needed)
 
-- Launch [`Podcaster.exe`](Podcaster.exe).
-- Switch between **English** and **Russian** anytime via the **`EN ▾` / `RU ▾`** button in the top bar. Your choice is saved in `ui-language.txt` next to the executable (defaults to English unless Russian is selected).
+Regular users **do not need to compile anything** — a ready-to-run binary is published in GitHub Releases:
+
+1. Download **`Podcaster.exe`**: **[Download latest Podcaster.exe](https://github.com/gluberTH/podcaster/releases/latest/download/Podcaster.exe)** or browse all builds on the [Releases page](https://github.com/gluberTH/podcaster/releases/latest).
+2. Place `Podcaster.exe` in any folder (portable single-file app for Windows 10/11 x64, no installer required) and double-click to launch.
+3. If Windows SmartScreen appears before open-source code signing is active, click **More info → Run anyway**.
+4. **Optional (for MP3 export and non-WAV audio import):** recording and `WAV` export work out of the box. To import `MP3`/`FLAC`/`M4A`/`Ogg` or export `MP3 (320 kbps)`, install FFmpeg once in PowerShell (or place `ffmpeg.exe` next to `Podcaster.exe`):
+
+   ```powershell
+   winget install Gyan.FFmpeg
+   ```
+
+5. Switch between **English** and **Russian** anytime via the **`EN ▾` / `RU ▾`** button in the top bar. Your choice is saved in `ui-language.txt` next to the executable (defaults to English unless Russian is selected).
 
 ### Audio Files & Projects (`File ▾`)
 
@@ -221,6 +245,10 @@ Build a separate test binary and run the headless self-test suite:
 & .\build.bat "$env:TEMP\Podcaster-test.exe"
 & .\Podcaster.exe --self-test | Out-String
 ```
+
+### Code Signing
+
+Free code signing provided by [SignPath.io](https://signpath.io/), certificate by [SignPath Foundation](https://signpath.org/).
 
 ### License
 
