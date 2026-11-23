@@ -24,6 +24,7 @@
 #include <cstdint>
 #include <cstdio>
 #include <cstring>
+#include <cwctype>
 #include <deque>
 #include <filesystem>
 #include <fstream>
@@ -656,18 +657,57 @@ static bool LoadWavFile(const std::wstring& path, std::vector<float>& outSamples
     return false;
 }
 
-static fs::path GetBackupDir() {
-    wchar_t exeBuf[MAX_PATH]{};
-    if (GetModuleFileNameW(nullptr, exeBuf, MAX_PATH)) {
-        return fs::path(exeBuf).parent_path() / L"backups";
-    }
-    return fs::current_path() / L"backups";
-}
-
 static fs::path CreateTempFileIn(const fs::path& directory) {
     wchar_t name[MAX_PATH]{};
     if (GetTempFileNameW(directory.c_str(), L"pdc", 0, name)) return name;
     return {};
+}
+
+static fs::path GetExecutableDir() {
+    wchar_t exeBuf[MAX_PATH]{};
+    if (GetModuleFileNameW(nullptr, exeBuf, MAX_PATH)) {
+        return fs::path(exeBuf).parent_path();
+    }
+    return fs::current_path();
+}
+
+static fs::path GetAppDataDir() {
+    static const fs::path cached = []() -> fs::path {
+        const fs::path exeDir = GetExecutableDir();
+        std::wstring lower = exeDir.wstring();
+        std::transform(lower.begin(), lower.end(), lower.begin(), [](wchar_t ch) {
+            return static_cast<wchar_t>(std::towlower(ch));
+        });
+        const bool packagedOrProgramFiles =
+            lower.find(L"\\windowsapps\\") != std::wstring::npos ||
+            lower.find(L"\\program files") != std::wstring::npos;
+
+        if (!packagedOrProgramFiles) {
+            std::error_code ec;
+            const fs::path probeDir = exeDir / L"backups";
+            fs::create_directories(probeDir, ec);
+            if (!ec) {
+                const fs::path probeFile = CreateTempFileIn(probeDir);
+                if (!probeFile.empty()) {
+                    fs::remove(probeFile, ec);
+                    return exeDir;
+                }
+            }
+        }
+
+        wchar_t localAppData[MAX_PATH]{};
+        const DWORD len = GetEnvironmentVariableW(L"LOCALAPPDATA", localAppData, MAX_PATH);
+        std::error_code ec;
+        fs::path baseDir = (len > 0 && len < MAX_PATH) ? fs::path(localAppData) : fs::temp_directory_path(ec);
+        fs::path appDir = baseDir / L"Podcaster";
+        fs::create_directories(appDir, ec);
+        return appDir;
+    }();
+    return cached;
+}
+
+static fs::path GetBackupDir() {
+    return GetAppDataDir() / L"backups";
 }
 
 static LANGID InterfaceLangId() {
@@ -677,11 +717,19 @@ static LANGID InterfaceLangId() {
 }
 
 static fs::path LanguagePreferencePath() {
-    return GetBackupDir().parent_path() / L"ui-language.txt";
+    return GetAppDataDir() / L"ui-language.txt";
 }
 
 static void LoadLanguagePreference() {
-    std::ifstream input(LanguagePreferencePath(), std::ios::binary);
+    std::error_code ec;
+    fs::path path = LanguagePreferencePath();
+    if (!fs::exists(path, ec)) {
+        const fs::path bundled = GetExecutableDir() / L"ui-language.txt";
+        if (fs::exists(bundled, ec)) {
+            path = bundled;
+        }
+    }
+    std::ifstream input(path, std::ios::binary);
     char buffer[8]{};
     input.read(buffer, sizeof(buffer));
     const std::string_view value(buffer, static_cast<size_t>(input.gcount()));
@@ -5155,6 +5203,23 @@ static int RunSelfTest() {
         return 1;
     }
     LogSelfTest("[OK] Project file round-trip and damaged file rejection");
+
+    {
+        const fs::path backupDir = GetBackupDir();
+        fs::create_directories(backupDir, ec);
+        const fs::path probe = ec ? fs::path{} : CreateTempFileIn(backupDir);
+        if (probe.empty()) {
+            LogSelfTest("[FAIL] Backup/settings directory is not writable: " + WideToUtf8(backupDir.wstring()));
+            return 1;
+        }
+        std::error_code rmEc;
+        fs::remove(probe, rmEc);
+        if (rmEc) {
+            LogSelfTest("[FAIL] Could not clean up probe file in backup/settings directory");
+            return 1;
+        }
+        LogSelfTest("[OK] Writable backup/settings directory: " + WideToUtf8(backupDir.wstring()));
+    }
 
     if (SUCCEEDED(hr)) CoUninitialize();
     LogSelfTest("[PASS] All self-tests succeeded.");

@@ -7,9 +7,10 @@ backups/
 # Runtime UI preferences
 ui-language.txt
 
-# Compiled binaries and build intermediates
+# Compiled binaries, packages, and build intermediates
 Podcaster.exe
 *.exe
+*.msix
 *.obj
 *.res
 *.pdb
