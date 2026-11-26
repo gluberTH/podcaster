@@ -10,18 +10,28 @@
 
 ## Скачать и установить (без компиляции)
 
-Обычным пользователям **ничего компилировать не нужно** — готовый `.exe` лежит во вкладке Releases:
+Обычным пользователям **ничего компилировать не нужно**. Программа полностью открыта (GPLv3), и её можно установить одним из двух способов:
+
+### Вариант 1 — Microsoft Store ($1.49 USD, установка в 1 клик с подписью Microsoft)
+
+<a href="https://apps.microsoft.com/detail/9NN92VLZZG0S"><img src="https://get.microsoft.com/images/ru%20dark.svg" width="200" alt="Скачать из Microsoft Store" /></a>
+
+- **[Открыть Podcaster Studio в Microsoft Store](https://apps.microsoft.com/detail/9NN92VLZZG0S)** (`$1.49 USD`)
+- Приложение автоматически подписано сертификатом **Microsoft Store**, ставится в один клик без предупреждений SmartScreen / антивирусов и получает автоматические обновления, а покупка помогает поддерживать развитие проекта.
+- В версии из Microsoft Store резервные копии (`backups/`) и выбор языка (`ui-language.txt`) сохраняются в `%LOCALAPPDATA%\Podcaster\`.
+
+### Вариант 2 — Бесплатный портативный `Podcaster.exe` с GitHub Releases
 
 1. Скачайте **`Podcaster.exe`**: **[Скачать последнюю версию (Podcaster.exe)](https://github.com/gluberTH/podcaster/releases/latest/download/Podcaster.exe)** или выберите релиз на [странице Releases](https://github.com/gluberTH/podcaster/releases/latest).
 2. Положите файл в любую папку (установщик не требуется, программа полностью портативна, Windows 10/11 x64) и запустите двойным кликом.
-3. Если при первом запуске Windows SmartScreen покажет предупреждение о неизвестном издателе, нажмите **«Подробнее» → «Выполнить в любом случае»** (пока оформляется цифровая подпись).
+3. Если при первом запуске портативной сборки Windows SmartScreen покажет предупреждение о неизвестном издателе, нажмите **«Подробнее» → «Выполнить в любом случае»** (сборка из Microsoft Store не требует этого шага, так как подписана Microsoft).
 4. **Необязательно (для MP3 и импорта других форматов):** запись с микрофона и экспорт в `WAV` работают сразу. Чтобы открывать `MP3`/`FLAC`/`M4A`/`Ogg` или экспортировать в `MP3 (320 кбит/с)`, установите FFmpeg одной командой в PowerShell (или положите `ffmpeg.exe` рядом с `Podcaster.exe`):
 
    ```powershell
    winget install Gyan.FFmpeg
    ```
 
-5. Переключение языка интерфейса (**RU / EN**) — кнопка **`RU ▾` / `EN ▾`** в верхней панели. Выбранный язык сохраняется в `ui-language.txt` рядом с программой (по умолчанию используется английский, пока не выбран русский).
+5. Переключение языка интерфейса (**RU / EN**) — кнопка **`RU ▾` / `EN ▾`** в верхней панели. Выбранный язык в портативной версии сохраняется в `ui-language.txt` рядом с программой (по умолчанию используется английский, пока не выбран русский).
 
 ### Аудиофайлы и проекты (`Файл ▾`)
 
@@ -136,18 +146,28 @@ A lightweight native **C++20** (`Win32 + Direct2D + DirectWrite + WASAPI`) deskt
 
 ## Download & Installation (No compilation needed)
 
-Regular users **do not need to compile anything** — a ready-to-run binary is published in GitHub Releases:
+Regular users **do not need to compile anything**. The project is 100% open-source (GPLv3), and you can get it in two ways:
+
+### Option 1 — Microsoft Store ($1.49 USD, 1-click install, signed by Microsoft)
+
+<a href="https://apps.microsoft.com/detail/9NN92VLZZG0S"><img src="https://get.microsoft.com/images/en-us%20dark.svg" width="200" alt="Get it from Microsoft Store" /></a>
+
+- **[Get Podcaster Studio from Microsoft Store](https://apps.microsoft.com/detail/9NN92VLZZG0S)** (`$1.49 USD`)
+- Automatically signed by **Microsoft Store** (no SmartScreen or unknown-publisher antivirus prompts), installs in one click with automatic updates, and directly supports ongoing development.
+- The Microsoft Store package stores autosave backups (`backups/`) and UI preferences (`ui-language.txt`) in `%LOCALAPPDATA%\Podcaster\`.
+
+### Option 2 — Free portable `Podcaster.exe` from GitHub Releases
 
 1. Download **`Podcaster.exe`**: **[Download latest Podcaster.exe](https://github.com/gluberTH/podcaster/releases/latest/download/Podcaster.exe)** or browse all builds on the [Releases page](https://github.com/gluberTH/podcaster/releases/latest).
 2. Place `Podcaster.exe` in any folder (portable single-file app for Windows 10/11 x64, no installer required) and double-click to launch.
-3. If Windows SmartScreen appears before open-source code signing is active, click **More info → Run anyway**.
+3. If Windows SmartScreen appears on the unsigned portable build from GitHub, click **More info → Run anyway** (the Microsoft Store version is Microsoft-signed and skips this warning).
 4. **Optional (for MP3 export and non-WAV audio import):** recording and `WAV` export work out of the box. To import `MP3`/`FLAC`/`M4A`/`Ogg` or export `MP3 (320 kbps)`, install FFmpeg once in PowerShell (or place `ffmpeg.exe` next to `Podcaster.exe`):
 
    ```powershell
    winget install Gyan.FFmpeg
    ```
 
-5. Switch between **English** and **Russian** anytime via the **`EN ▾` / `RU ▾`** button in the top bar. Your choice is saved in `ui-language.txt` next to the executable (defaults to English unless Russian is selected).
+5. Switch between **English** and **Russian** anytime via the **`EN ▾` / `RU ▾`** button in the top bar. In portable mode, your choice is saved in `ui-language.txt` next to the executable (defaults to English unless Russian is selected).
 
 ### Audio Files & Projects (`File ▾`)
 
