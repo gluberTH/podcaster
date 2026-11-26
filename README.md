@@ -8,6 +8,12 @@
 
 <img width="1918" height="1029" alt="image" src="https://github.com/user-attachments/assets/c7b30224-d0ef-47a6-b1cf-41458f057f8c" />
 
+## 🎬 Видеообзор (YouTube)
+
+[![Смотреть демонстрацию Podcaster Studio на YouTube](https://img.youtube.com/vi/1TkvSul8Mk4/hqdefault.jpg)](https://youtu.be/1TkvSul8Mk4)
+
+▶ **[Смотреть демонстрацию работы на YouTube](https://youtu.be/1TkvSul8Mk4)**
+
 ## Скачать и установить (без компиляции)
 
 Обычным пользователям **ничего компилировать не нужно**. Программа полностью открыта (GPLv3), и её можно установить одним из двух способов:
@@ -143,6 +149,12 @@ Copyright (C) 2026 Vladimir Borozenets
 A lightweight native **C++20** (`Win32 + Direct2D + DirectWrite + WASAPI`) desktop studio built for solo podcast recording. One compact window combines an auto-scrolling teleprompter, high-detail waveform view, punch-in re-recording, silence trimming, master gain fader, non-destructive DSP effects, `.podcaster` project files, automatic backups, and lossless/MP3 export.
 
 <img width="1919" height="1029" alt="image" src="https://github.com/user-attachments/assets/f55f0d57-b2ab-403f-9d42-6e178b9c4542" />
+
+## 🎬 Video Demo (YouTube)
+
+[![Watch Podcaster Studio Demo on YouTube](https://img.youtube.com/vi/1TkvSul8Mk4/hqdefault.jpg)](https://youtu.be/1TkvSul8Mk4)
+
+▶ **[Watch the full walkthrough on YouTube](https://youtu.be/1TkvSul8Mk4)**
 
 ## Download & Installation (No compilation needed)
 

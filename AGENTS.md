@@ -21,6 +21,7 @@
 - **Прямая ссылка для открытия в клиенте Microsoft Store (Windows):** `ms-windows-store://pdp/?productid=9NN92VLZZG0S`
 - **Microsoft Partner Center (управление продуктом `9NN92VLZZG0S`):** https://partner.microsoft.com/ru-ru/dashboard/products/9NN92VLZZG0S/overview
 - **GitHub (GNU GPLv3):** https://github.com/gluberTH/podcaster
+- **Видеодемонстрация (YouTube):** https://youtu.be/1TkvSul8Mk4
 - **Политика конфиденциальности (`PRIVACY.md`):** https://github.com/gluberTH/podcaster/blob/main/PRIVACY.md
 
 ## Идентификаторы Microsoft Store (`msix/AppxManifest.xml`)
